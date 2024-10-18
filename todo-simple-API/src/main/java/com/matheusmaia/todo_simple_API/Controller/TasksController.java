@@ -53,18 +53,18 @@ public class TasksController {
       @DeleteMapping("/{id}")
       @Transactional
       public ResponseEntity deleteTaskById(@PathVariable Long id){
-        var task = taskRepository.getReferenceById(id);
-        taskRepository.deleteById(id);
-        return ResponseEntity.ok("Tarefa excluída!");
+        var task = taskRepository.getReferenceById(id); //Confere a existência
+        taskRepository.deleteById(id); //deleta do BD
+        return ResponseEntity.ok("Tarefa excluída!"); //Retorno para o usuário
       }
 
       @PutMapping
-      @TransactionScoped
+      @Transactional
       public ResponseEntity updateTask(@RequestBody @Valid UpdateTask dados){
-       var task =  taskRepository.getReferenceById(dados.id());
-       task.atualizarInformacoes(dados);
-       taskRepository.save(task);
-        return ResponseEntity.ok(new DadosListagemTasks(task));
+       var task =  taskRepository.getReferenceById(dados.id()); //Verifica a existência
+       task.atualizarInformacoes(dados); //atualiza os dados
+       taskRepository.save(task); //Salva alteração
+        return ResponseEntity.ok(new DadosListagemTasks(task)); //retorno da Task Atualizada
 
 
       }
