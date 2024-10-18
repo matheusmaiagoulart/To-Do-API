@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "Tasks")
 public class Task {
 
+
+    //Criacao de atributos necessarios da Entidade
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Anotação para geração dos ID's das tarefas sequenciais
     private Long id;
@@ -22,13 +24,29 @@ public class Task {
     private String descricao;
 
     @Enumerated(EnumType.STRING)
-    private StatusTarefa statusTarefa;
+    private Status status;
 
+
+    //Construtor para criacao de uma task que espera um DTO por parametro
     public Task(CadastroTask dados){
         this.titulo = dados.titulo();
         this.descricao = dados.descricao();
-        this.statusTarefa = dados.statusTarefa();
+        this.status = dados.status();
+    }
+
+    public void atualizarInformacoes(UpdateTask dados){
+
+        if(dados.titulo() != null){
+            this.titulo = dados.titulo();
+        }
+        if(dados.descricao() != null){
+            this.descricao = dados.descricao();
+        }
+        if(dados.status() != null){
+            this.status = dados.status();
+        }
+    }
     }
 
 
-}
+

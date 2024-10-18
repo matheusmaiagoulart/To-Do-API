@@ -4,7 +4,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record CadastroTask(
-
                            @NotBlank
                            String titulo,
 
@@ -12,5 +11,5 @@ public record CadastroTask(
                            String descricao,
 
                            @NotNull
-                           StatusTarefa statusTarefa) {
+                           Status status) {
 }
