@@ -1,4 +1,4 @@
-package com.matheusmaia.todo_simple_API.Domain;
+package com.matheusmaia.todo_simple_API.Model.Task;
 
 public enum StatusTarefa {
     NAO_INICIADO("Não Iniciado"),

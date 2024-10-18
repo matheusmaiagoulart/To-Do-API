@@ -1,6 +1,5 @@
-package com.matheusmaia.todo_simple_API.Domain.Model.Task;
+package com.matheusmaia.todo_simple_API.Model.Task;
 
-import com.matheusmaia.todo_simple_API.Domain.StatusTarefa;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 

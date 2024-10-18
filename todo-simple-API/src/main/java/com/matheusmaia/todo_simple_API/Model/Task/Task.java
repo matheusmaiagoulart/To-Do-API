@@ -1,6 +1,5 @@
-package com.matheusmaia.todo_simple_API.Domain.Model.Task;
+package com.matheusmaia.todo_simple_API.Model.Task;
 
-import com.matheusmaia.todo_simple_API.Domain.StatusTarefa;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
