@@ -1,0 +1,50 @@
+
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<table id="tasksMain">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>TITULO</th>
+        <th>DESCRICAO</th>
+        <th>STATUS</th>
+    </tr>
+    </thead>
+    <tbody id="tasks"></tbody>
+</table>
+<div>
+    <button id="add-task-btn">Nova Tarefa</button>
+</div>
+<!-- Busca de tarefa pelo ID -->
+<div>
+<label for="taskIdInput">Buscar tarefa pelo ID:</label>
+<input type="number" id="taskIdInput" placeholder="Digite o ID da tarefa">
+<button id="find-task-btn">Buscar Tarefa</button>
+</div>
+
+<!-- Exibição da tarefa encontrada -->
+<div id="taskDetails" style="display:none;">
+    <h3>Detalhes da Tarefa</h3>
+    <p><strong>ID:</strong> <span id="task-id"></span></p>
+    <p><strong>Título:</strong> <span id="task-titulo"></span></p>
+    <p><strong>Descrição:</strong> <span id="task-descricao"></span></p>
+    <p><strong>Status:</strong> <span id="task-status"></span></p>
+</div>
+
+<div>
+    <h3>Excluir Tarefa</h3>
+    <label for="taskIdDelete">Insira o ID da tarefa para excluir:</label>
+    <input type="number" id="taskIdDelete" placeholder="ID da tarefa">
+    <button id="delete-task-btn">Excluir Tarefa</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -15,8 +15,9 @@ public class Task {
 
 
     //Criacao de atributos necessarios da Entidade
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //Anotação para geração dos ID's das tarefas sequenciais
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String titulo;
@@ -28,13 +29,14 @@ public class Task {
 
 
     //Construtor para criacao de uma task que espera um DTO por parametro
-    public Task(CadastroTask dados){
+    public Task(CadastroTaskDTO dados){
         this.titulo = dados.titulo();
         this.descricao = dados.descricao();
         this.status = dados.status();
     }
 
-    public void atualizarInformacoes(UpdateTask dados){
+    //Construtor para atualizacao de infos em tasks ja criadas
+    public void atualizarInformacoes(UpdateTaskDTO dados){
 
         if(dados.titulo() != null){
             this.titulo = dados.titulo();
