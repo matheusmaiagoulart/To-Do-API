@@ -54,10 +54,10 @@ Abra na IDE IntelliJ e faça as alterações para seu login no Banco de Dados SQ
 
   ```xml
   spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-  spring.datasource.url=jdbc:mysql://localhost/todo-api
-  spring.datasource.username=root -> seu usuario do Banco de Dados
-  spring.datasource.password=admin -> sua senha para conectar no Banco de Dados
-  spring.jpa.show-sql=true
+        spring.datasource.url=jdbc:mysql://localhost/todo-api
+        spring.datasource.username=root -> seu usuario do Banco de Dados
+        spring.datasource.password=admin -> sua senha para conectar no Banco de Dados
+        spring.jpa.show-sql=true
   ```
 
 ## Criação do Banco de Dados
@@ -81,4 +81,50 @@ ou:
   ```
 ## EndPoints Detalhados
 
-<img src="Vieew/img/GETMétodo" alt="Método para pegar todas as Tarefas já cadastradas">
+<img  width=100% src="https://github.com/matheusmaiagoulart/To-Do-API/blob/main/todo-simple-API/src/main/java/com/matheusmaia/todo_simple_API/View/img/GETM%C3%A9todo.png" alt="Método para pegar todas as Tarefas já cadastradas">
+Método para listar todas as tarefas já cadastradas. 
+
+```
+GET http://localhost:8080/tasks
+```
+
+<img  width=100% src="https://github.com/matheusmaiagoulart/To-Do-API/blob/main/todo-simple-API/src/main/java/com/matheusmaia/todo_simple_API/View/img/POSTM%C3%A9todo.png" alt="Método para pegar todas as Tarefas já cadastradas">
+Método para cadastrar uma tarefa.
+
+```
+POST http://localhost:8080/tasks
+
+{
+"titulo: "Seu titulo",
+"descricao" : "Sua descrição",
+"status" : "NAO_INICIADO/EM_ANDAMENTO/FINALIZADO" //um desses 3, sendo escritos exatamente assim
+}
+```
+
+<img  width=100% src="https://github.com/matheusmaiagoulart/To-Do-API/blob/main/todo-simple-API/src/main/java/com/matheusmaia/todo_simple_API/View/img/PUTM%C3%A9todo.png" alt="Método para pegar todas as Tarefas já cadastradas">
+Método para Editar uma tarefa já cadastrada.
+
+```
+PUT http://localhost:8080/tasks
+
+{
+"id" : 0, //ID da tarefa a ser atualizada
+"titulo: "Seu titulo atualizado",
+"descricao" : "Sua descrição atualizada",
+"status" : "NAO_INICIADO/EM_ANDAMENTO/FINALIZADO" //um desses 3, sendo escritos exatamente assim
+}
+```
+
+<img  width=100% src="https://github.com/matheusmaiagoulart/To-Do-API/blob/main/todo-simple-API/src/main/java/com/matheusmaia/todo_simple_API/View/img/GetByIdM%C3%A9todo.png" alt="Método para pegar todas as Tarefas já cadastradas">
+Método para buscar uma tarefa já cadastrada pelo ID.
+
+```
+GET http://localhost:8080/tasks/0
+```
+
+<img  width=100% src="https://github.com/matheusmaiagoulart/To-Do-API/blob/main/todo-simple-API/src/main/java/com/matheusmaia/todo_simple_API/View/img/DeleteByIdM%C3%A9todo.png" alt="Método para pegar todas as Tarefas já cadastradas">
+Método para excluir uma tarefa já cadastrada pelo seu ID.
+
+```
+DELETE http://localhost:8080/tasks/0
+```
