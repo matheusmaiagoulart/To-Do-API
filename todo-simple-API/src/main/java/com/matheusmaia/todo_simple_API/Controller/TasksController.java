@@ -52,8 +52,10 @@ public class TasksController {
       @Transactional
       public ResponseEntity deleteTaskById(@PathVariable Long id){
         var task = taskRepository.getReferenceById(id);
-        taskRepository.deleteById(id); //Deleta do BD
-        return ResponseEntity.ok("Tarefa excluída!");
+
+            taskRepository.deleteById(id); //Deleta do BD
+            System.out.println(task);
+            return ResponseEntity.ok("Tarefa excluída!");
       }
 
       @PutMapping
