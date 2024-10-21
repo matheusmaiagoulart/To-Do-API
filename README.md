@@ -30,6 +30,9 @@ API Rest de lista de Tarefas em que o usuário consegue Cadastrar, Editar, Ler, 
   - Postman (Test de requisições HTTP)
   - Git (Controle do versionamento do Código)
 
+##  Arquitetura
+Foi utilizada a arquitetura MVC para o desenvolvimento da Aplicação.
+
 
 ## ⤵ Instruções de utilização
 
