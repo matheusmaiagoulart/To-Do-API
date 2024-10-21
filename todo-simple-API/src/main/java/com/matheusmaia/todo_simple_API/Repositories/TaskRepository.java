@@ -4,5 +4,6 @@ import com.matheusmaia.todo_simple_API.Model.Task.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {
+    //Repositorio para queries no Banco de Dados
 
 }

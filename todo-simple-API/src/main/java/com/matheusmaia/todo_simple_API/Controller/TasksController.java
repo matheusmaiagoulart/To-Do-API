@@ -35,8 +35,7 @@ public class TasksController {
     @Transactional(readOnly = true) //garante que a leitura nao fara nenhuma modificacao no DB, sendo mais segura
     public ResponseEntity readTasks(){
         var allProducts = taskRepository.findAll(); //Busco por todas as tasks com o Jpa
-        System.out.println(allProducts.toString());
-        return ResponseEntity.ok(allProducts); //Retorno
+        return ResponseEntity.ok(allProducts); //Retorno no corpo do Body
 
     }
 
@@ -52,18 +51,18 @@ public class TasksController {
       @DeleteMapping("/{id}")
       @Transactional
       public ResponseEntity deleteTaskById(@PathVariable Long id){
-        var task = taskRepository.getReferenceById(id); //Confere a existência
-        taskRepository.deleteById(id); //deleta do BD
-        return ResponseEntity.ok("Tarefa excluída!"); //Retorno para o usuário
+        var task = taskRepository.getReferenceById(id);
+        taskRepository.deleteById(id); //Deleta do BD
+        return ResponseEntity.ok("Tarefa excluída!");
       }
 
       @PutMapping
       @Transactional
       public ResponseEntity updateTask(@RequestBody @Valid UpdateTaskDTO dados){
        var task =  taskRepository.getReferenceById(dados.id()); //Verifica a existência
-       task.atualizarInformacoes(dados); //atualiza os dados
+       task.atualizarInformacoes(dados); //Atualiza os dados
        taskRepository.save(task); //Salva alteração
-        return ResponseEntity.ok(new DadosListagemTasksDTO(task)); //retorno da Task Atualizada
+        return ResponseEntity.ok(new DadosListagemTasksDTO(task)); //Retorno da Task Atualizada
 
 
       }

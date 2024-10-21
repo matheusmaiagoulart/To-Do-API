@@ -75,5 +75,11 @@ p {
 
 th, td {
     padding: 18px; /* Ajuste o valor conforme necessário */
-    border: 1px solid #ddd; /* Borda opcional */
+    border: 1px solid #007bff; /* Borda opcional */
+}
+td:nth-child(3) {
+    max-width: 300px; /* Ajuste o valor conforme necessário */
+    word-wrap: break-word; /* Quebra a linha quando o texto é muito longo */
+    white-space: normal; /* Permite a quebra de linha */
+    overflow-wrap: break-word; /* Garante que longas palavras sejam quebradas */
 }
