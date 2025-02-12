@@ -13,7 +13,7 @@ async function getAPI(url) {
         const tbody = document.getElementById('tasks');
         tbody.innerHTML = '';
 
-        // Itera sobre cada item da lista retornada pela API
+        
         data.forEach(item => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
@@ -28,13 +28,13 @@ async function getAPI(url) {
             tbody.appendChild(tr);
         });
 
-        // Adiciona eventos de clique para os botões de edição
+        
         const editButtons = document.querySelectorAll('.edit-task-btn');
         editButtons.forEach(button => {
             button.onclick = editTask;
         });
 
-        console.log(data); // Exibe os dados no console para depuração
+        console.log(data); 
 
     } catch (error) {
         console.error("Erro ao obter dados da API:", error);
@@ -47,7 +47,7 @@ async function addTask() {
     const descricao = prompt("Digite a descrição da tarefa:");
     const status = prompt("Digite o status da tarefa dentre as opções: (ex: 'NAO_INICIADO', 'EM_ADAMENTO', 'FINALIZADO' exatamente deste jeito!):");
 
-    // Verifica se os valores não são nulos ou vazios
+    
     if (titulo && descricao && status) {
         const taskData = {
             titulo: titulo,
@@ -61,12 +61,12 @@ async function addTask() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(taskData) // Envia os dados da nova tarefa em formato JSON
+                body: JSON.stringify(taskData) 
             });
 
             if (response.ok) {
                 console.log("Tarefa adicionada com sucesso!");
-                getAPI('http://localhost:8080/tasks'); // Atualiza a lista de tarefas
+                getAPI('http://localhost:8080/tasks'); 
             } else {
                 console.error(`Erro ao adicionar tarefa: ${response.statusText}`);
             }
@@ -74,16 +74,16 @@ async function addTask() {
             console.error("Erro ao fazer a requisição:", error);
         }
     } else {
-        alert("Por favor, preencha todos os campos!"); // Alerta se algum campo estiver vazio
+        alert("Por favor, preencha todos os campos!"); 
     }
 }
 
-// Adiciona evento ao botão de adicionar tarefa
+ 
 document.getElementById('add-task-btn').addEventListener('click', addTask);
 
 
 async function findTaskById() {
-    const taskId = document.getElementById('taskIdInput').value; // Obtém o ID inserido pelo usuário
+    const taskId = document.getElementById('taskIdInput').value;  
 
     if (!taskId) {
         alert('Por favor, insira um ID válido');
@@ -105,7 +105,7 @@ async function findTaskById() {
             document.getElementById('task-descricao').textContent = task.descricao;
             document.getElementById('task-status').textContent = task.status;
 
-            document.getElementById('taskDetails').style.display = 'block'; // Exibe o div de detalhes
+            document.getElementById('taskDetails').style.display = 'block';  
         } else {
             alert(`Tarefa com ID ${taskId} não encontrada.`);
 
@@ -116,12 +116,12 @@ async function findTaskById() {
     }
 }
 
-// Adiciona evento ao botão de buscar tarefa
+ 
 document.getElementById('find-task-btn').addEventListener('click', findTaskById);
 
 
 async function deleteTaskById() {
-    const taskId = document.getElementById('taskIdDelete').value; // Pega o valor do input
+    const taskId = document.getElementById('taskIdDelete').value;  
 
     if (!taskId) {
         alert('Por favor, insira um ID válido');
@@ -146,12 +146,12 @@ async function deleteTaskById() {
     }
 }
 
-// Adiciona o evento de clique ao botão de exclusão
+ 
 document.getElementById('delete-task-btn').addEventListener('click', deleteTaskById);
 
 
 async function editTask() {
-    const taskId = this.getAttribute('data-id'); // Obtém o ID da tarefa a partir do botão que foi clicado
+    const taskId = this.getAttribute('data-id');  
     console.log(taskId);
     const titulo = prompt("Digite o novo título da tarefa:");
     const descricao = prompt("Digite a nova descrição da tarefa:");
@@ -169,16 +169,16 @@ async function editTask() {
 
         try {
             const response = await fetch(`http://localhost:8080/tasks`, {
-                method: 'PUT', // Método para atualizar a tarefa
+                method: 'PUT',  
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(taskData) // Envia os dados atualizados da tarefa em formato JSON
+                body: JSON.stringify(taskData)  
             });
 
             if (response.ok) {
                 console.log("Tarefa atualizada com sucesso!");
-                getAPI(url); // Atualiza a lista de tarefas
+                getAPI(url);  
             } else {
                 console.error(`Erro ao atualizar tarefa: ${response.statusText}`);
             }
@@ -186,6 +186,6 @@ async function editTask() {
             console.error("Erro ao fazer a requisição:", error);
         }
     } else {
-        alert("Por favor, preencha todos os campos!"); // Alerta se algum campo estiver vazio
+        alert("Por favor, preencha todos os campos!");  
     }
 }
